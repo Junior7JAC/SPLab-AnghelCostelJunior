@@ -1,17 +1,23 @@
 package ro.uvt.info.designpatternslab2023.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Table implements Element {
-    private String title;
-    private List<Element> elementList;
+public class Section implements Element{
+    protected String title;
+    protected List<Element> elementList;
 
-    public Table(String title) {
+    public Section(String title) {
         this.title = title;
+        elementList = new ArrayList<>();
     }
 
-    public void print(){
-        System.out.println("Table with Title: " + title);
+    @Override
+    public void print() {
+        System.out.println(title);
+        for (Element element : elementList) {
+            element.print();
+        }
     }
 
     @Override
@@ -28,8 +34,4 @@ public class Table implements Element {
     public Element get(int index) {
         return elementList.get(index);
     }
-//    public int getType()
-//    {
-//        return 3;
-//    }
 }

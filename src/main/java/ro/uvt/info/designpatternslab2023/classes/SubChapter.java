@@ -15,29 +15,18 @@ public class SubChapter {
     public void createNewParagraph(String s) {
         Paragraph para = new Paragraph(s);
         this.elementList.add(para);
-        Sort();
+        //Sort();
     }
 
     public void createNewImage(String s) {
         Image im = new Image(s);
         this.elementList.add(im);
-        Sort();
+        //Sort();
     }
     public void createNewTable(String s){
         Table t = new Table(s);
         this.elementList.add(t);
-        Sort();
-    }
-
-    public void Sort()
-    {
-        elementList.sort(new Comparator<Element>() {
-            @Override
-            public int compare(Element o1, Element o2) {
-                return o1.getType()- o2.getType();
-            }
-        });
-
+        //Sort();
     }
 
     public void print(){
@@ -46,5 +35,16 @@ public class SubChapter {
         for(Element el : elementList)
             el.print();
     }
+
+//    public void Sort()
+//    {
+//        elementList.sort(new Comparator<Element>() {
+//            @Override
+//            public int compare(Element o1, Element o2) {
+//                return o1.getType()- o2.getType();
+//            }
+//        });
+//
+//    }
 
 }

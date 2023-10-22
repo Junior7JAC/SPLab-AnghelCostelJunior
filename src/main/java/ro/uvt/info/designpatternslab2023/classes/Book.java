@@ -3,38 +3,32 @@ package ro.uvt.info.designpatternslab2023.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
-    private String title;
-    private List<Author> authorList = new ArrayList<>();
-    private List<Chapter> chapterList = new ArrayList<>();
-    public Book(String title) {
-        this.title = title;
-    }
+public class Book extends Section{
+    private List<Author> authors;
 
+    public Book(String title) {
+        super(title);
+        authors = new ArrayList<>();
+    }
 
     public void addAuthor(Author author) {
-        this.authorList.add(author);
+        this.authors.add(author);
     }
 
-    public int createChapter(String s) {
-        Chapter ch = new Chapter(s);
-        this.chapterList.add(ch);
-        return this.chapterList.indexOf(ch);
+    @Override
+    public void print(){
+        System.out.println("Book: " + title );
+        System.out.println();
+
+        System.out.println("Authors: ");
+        for (Author author : authors) {
+            author.print();
+        }
+        System.out.println();
+
+        for (Element element : elementList) {
+            element.print();
+        }
     }
-
-    public Chapter getChapter(int indexChapterOne) {
-        return this.chapterList.get(indexChapterOne);
-    }
-
-    public void print()
-    {
-        System.out.println(title);
-
-        for(Author au: authorList)
-            au.print();
-        for(Chapter ch: chapterList)
-            ch.print();
-    }
-
 
 }
