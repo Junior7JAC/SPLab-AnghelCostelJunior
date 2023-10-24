@@ -36,15 +36,5 @@ public class SubChapter {
             el.print();
     }
 
-//    public void Sort()
-//    {
-//        elementList.sort(new Comparator<Element>() {
-//            @Override
-//            public int compare(Element o1, Element o2) {
-//                return o1.getType()- o2.getType();
-//            }
-//        });
-//
-//    }
 
 }
