@@ -2,7 +2,7 @@ package ro.uvt.info.designpatternslab2023.classes;
 
 import java.util.List;
 
-public class Paragraph implements Element{
+public class Paragraph extends Element{
     private String text;
     private List<Element> elementList;
     public void print(){
