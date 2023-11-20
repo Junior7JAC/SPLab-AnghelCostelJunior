@@ -1,4 +1,4 @@
-package ro.uvt.info.designpatternslab2023.classes;
+package ro.uvt.info.designpatternslab2023.services;
 
 import javax.naming.Context;
 

@@ -1,6 +1,10 @@
 package ro.uvt.info.designpatternslab2023.classes;
 
-public class ImageProxy extends Element implements Picture {
+import ro.uvt.info.designpatternslab2023.classes.Element;
+import ro.uvt.info.designpatternslab2023.classes.Image;
+import ro.uvt.info.designpatternslab2023.classes.Picture;
+
+public class ImageProxy extends Element implements Picture, Visitee {
     private Image realImage;
     private String url;
 
@@ -9,7 +13,7 @@ public class ImageProxy extends Element implements Picture {
     }
 
     @Override
-    public String url() {
+    public String getUrl() {
         return url;
     }
 
@@ -19,13 +23,15 @@ public class ImageProxy extends Element implements Picture {
         return realImage;
     }
 
-    @Override
-    public void print() {
-        LoadImage().print();
-    }
+
 
     @Override
     public Element clone() {
         return null;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
     }
 }

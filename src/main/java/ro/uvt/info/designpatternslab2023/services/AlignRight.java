@@ -1,4 +1,4 @@
-package ro.uvt.info.designpatternslab2023.classes;
+package ro.uvt.info.designpatternslab2023.services;
 
 public class AlignRight implements AlignStrategy{
     @Override
