@@ -3,32 +3,31 @@ package ro.uvt.info.designpatternslab2023.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book extends Section{
-    private List<Author> authors;
+import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+public class Book extends Section implements Visitee {
+    private List<Author> authorList;
     public Book(String title) {
         super(title);
-        authors = new ArrayList<>();
+        authorList = new ArrayList<>();
+    }
+
+    public Book(Book other){
+        super(other.title);
+        this.authorList = new ArrayList<>(other.authorList);
     }
 
     public void addAuthor(Author author) {
-        this.authors.add(author);
+        this.authorList.add(new Author(author));
     }
 
     @Override
-    public void print(){
-        System.out.println("Book: " + title );
-        System.out.println();
-
-        System.out.println("Authors: ");
-        for (Author author : authors) {
-            author.print();
-        }
-        System.out.println();
-
-        for (Element element : elementList) {
-            element.print();
-        }
+    public void accept(Visitor visitor) {
+        visitor.visitBook(this);
     }
 
 }

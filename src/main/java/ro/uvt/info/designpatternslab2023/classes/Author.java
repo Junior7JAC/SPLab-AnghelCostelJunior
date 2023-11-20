@@ -1,8 +1,11 @@
 package ro.uvt.info.designpatternslab2023.classes;
 
 import javax.swing.plaf.PanelUI;
+import lombok.Getter;
 
-public class Author {
+public class Author implements Visitee {
+
+    @Getter
     private String name;
     private String surname;
 
@@ -15,7 +18,13 @@ public class Author {
         this.surname = surname;
     }
 
-    public void print(){
-        System.out.println("Author: " + name);
+    public Author(Author author){
+        this.name = author.name;
+        this.surname = author.surname;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitAuthor(this);
     }
 }
