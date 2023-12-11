@@ -1,20 +1,20 @@
 package ro.uvt.info.designpatternslab2023.services;
+import lombok.RequiredArgsConstructor;
 import ro.uvt.info.designpatternslab2023.classes.Book;
-public class CommandGetBookById implements Command<Book> {
-    private BookServices books;
-    private Long id;
 
-    @Override
-    public Book execute() {
-        return books.getBookById(id);
+@RequiredArgsConstructor
+
+public class CommandGetBookById implements Command {
+
+    private final Long id;
+
+    Book result = null;
+
+    public void execute(CommandContext context) {
+        result = context.getBookRepository().getBookById(id);
     }
 
-    public CommandGetBookById(BookServices contextBooks)
-    {
-        this.books = contextBooks;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Book getResultBook() {
+        return result;
     }
 }
