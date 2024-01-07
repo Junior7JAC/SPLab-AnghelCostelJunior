@@ -1,6 +1,6 @@
 package ro.uvt.info.designpatternslab2023.services;
 
-import ro.uvt.info.designpatternslab2023.classes.Book;
+import ro.uvt.info.designpatternslab2023.Entity.Book;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class CommandUpdateBook implements Command {
 
     @Override
     public void execute(CommandContext context) {
-        result = context.getBookRepository().createBook(book);
+        result = context.getBookRepository().save(book);
     }
 
     public Book getResults() {
