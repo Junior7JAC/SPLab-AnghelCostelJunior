@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import ro.uvt.info.designpatternslab2023.services.*;
 import ro.uvt.info.designpatternslab2023.services.BookStatistics;
 import org.springframework.web.bind.annotation.*;
-import ro.uvt.info.designpatternslab2023.classes.Book;
+import ro.uvt.info.designpatternslab2023.Entity.Book;
 
 import java.util.*;
 

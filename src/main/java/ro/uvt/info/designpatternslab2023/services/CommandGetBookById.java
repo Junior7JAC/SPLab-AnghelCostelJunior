@@ -1,6 +1,6 @@
 package ro.uvt.info.designpatternslab2023.services;
 import lombok.RequiredArgsConstructor;
-import ro.uvt.info.designpatternslab2023.classes.Book;
+import ro.uvt.info.designpatternslab2023.Entity.Book;
 
 @RequiredArgsConstructor
 
@@ -11,7 +11,7 @@ public class CommandGetBookById implements Command {
     Book result = null;
 
     public void execute(CommandContext context) {
-        result = context.getBookRepository().getBookById(id);
+        result = context.getBookRepository().findById(id).get();
     }
 
     public Book getResultBook() {
