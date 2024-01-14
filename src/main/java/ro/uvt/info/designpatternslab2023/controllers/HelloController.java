@@ -13,7 +13,7 @@ public class HelloController {
     private final ClientComponent clientComponent;
     private final ClientComponent clientComponent2;
 
-    @GetMapping("/")
+    //@GetMapping("/")
     public String hello() {
 //        return "Hello from Spring Boot";
         String helloMessage = "Hello from ClientComponent = %s\n%s".formatted(clientComponent, clientComponent2);
